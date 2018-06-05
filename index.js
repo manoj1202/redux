@@ -47,3 +47,10 @@ function goals(state=[], action){
         return state
     }
 }
+
+function app(state={} , action){
+    return{
+        todos:todos(state, acton),
+        goals: goals(state, action)
+    }
+}
