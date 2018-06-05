@@ -60,3 +60,59 @@ const store = createStore(app);
 store.subScribe(() => {
     console.log("The New State is:" ,store.getState())
 })
+
+store.dispatch({
+    type: "ADD_TODO",
+    todo: {
+        id: 0,
+        name: "LearnRedux",
+        complete: false
+    }
+})
+
+store.dispatch({
+    type: "ADD_TODO",
+    todo: {
+        id: 1,
+        name: "Read a Book",
+        complete: true
+
+    }
+})
+
+store.dispatch({
+    type: "ADD_TODO",
+    todo: {
+        id: 2,
+        name: "Take DOg out",
+        complete: false
+    }
+})
+store.dispatch({
+    type: "REMOVE_TODO",
+    id: 0
+})
+store.dispatch({
+    type: "ADD_GOAL",
+    goal: {
+        id: 0,
+        name: "Reduce weight",
+    }
+})
+
+store.dispatch({
+    type: "TOGGLE_TODO",
+    id: 2
+})
+
+store.dispatch({
+    type: "ADD_GOAL",
+    goal: {
+        id: 1,
+        name: "Play Cricket",
+    }
+})
+store.dispatch({
+    type: "REMOVE_GOAL",
+    id: 0
+})
