@@ -22,7 +22,7 @@ function createStore(reducer){
 }
 
 //App Code
-function todo(state =[], action){
+function todos(state =[], action){
     switch(action.type){
         case "ADD_TODO":
         return state.concat([action.todo])
@@ -49,8 +49,8 @@ function goals(state=[], action){
 }
 
 function app(state={} , action){
-    return{
-        todos:todos(state.todos, acton),
+    return {
+        todos:todos(state.todos, action),
         goals: goals(state.goals, action)
     }
 }
