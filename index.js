@@ -50,7 +50,7 @@ function goals(state=[], action){
 
 function app(state={} , action){
     return{
-        todos:todos(state, acton),
-        goals: goals(state, action)
+        todos:todos(state.todos, acton),
+        goals: goals(state.goals, action)
     }
 }
