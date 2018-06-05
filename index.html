@@ -164,9 +164,13 @@
             input.value = "";
 
             store.dispatch(addGoalAction({
-               id: generateId();
+               id: generateId(),
+               name
             }))
         }
+
+        document.getElementById('todobtn').addEventListener("Click" , addTodo);
+        document.getElementById("goaltn").addEventListener("click", addGoal)
 
     </script>
 </body>
