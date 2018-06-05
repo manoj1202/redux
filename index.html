@@ -127,61 +127,40 @@
             return Math.random().toString(36).subString(2) + (new Date()).getTime().toString(36);
         }
 
-        // store.dispatch({
-        //     type: ADD_TODO,
-        //     todo: {
+        // store.dispatch(addTodoAction({
         //         id: 0,
         //         name: "LearnRedux",
         //         complete: false
-        //     }
-        // })
-
-        // store.dispatch({
-        //     type: ADD_TODO,
-        //     todo: {
+        //     }))
+        // store.dispatch(addTodoAction({
         //         id: 1,
         //         name: "Read a Book",
         //         complete: true
+        //     }))
 
-        //     }
-        // })
-
-        // store.dispatch({
-        //     type: ADD_TODO,
-        //     todo: {
+        // store.dispatch(addTodoAction( {
         //         id: 2,
         //         name: "Take DOg out",
         //         complete: false
-        //     }
-        // })
-        // store.dispatch({
-        //     type: REMOVE_TODO,
-        //     id: 0
-        // })
-        // store.dispatch({
-        //     type: ADD_GOAL,
-        //     goal: {
+        //     }))
+
+        // 
+        // store.dispatch(removeTodoAction(0))
+
+        // store.dispatch(addGoalAction({
         //         id: 0,
         //         name: "Reduce weight",
-        //     }
-        // })
+        //     }))
 
-        // store.dispatch({
-        //     type: TOGGLE_TODO,
-        //     id: 2
-        // })
+        //store.dispatch(toggleTodoAction(2))
 
-        // store.dispatch({
-        //     type: ADD_GOAL,
-        //     goal: {
+        // store.dispatch(addGoalAction({
         //         id: 1,
         //         name: "Play Cricket",
-        //     }
-        // })
-        // store.dispatch({
-        //     type: REMOVE_GOAL,
-        //     id: 0
-        // })
+        //     }))
+
+        
+        // store.dispatch(removeGoalAction(0))
 
         function addTodo(){
             const input = document.getElementById('todo');
