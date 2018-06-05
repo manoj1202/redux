@@ -120,7 +120,10 @@
         const store = createStore(app);
 
         store.subScribe(() => {
-            console.log("The New State is:" ,store.getState())
+           const {goals,todos} = store.getState();
+            
+           todos.forEach(addTodoToDom);
+           goals.forEach(addGoalToDom);
         })
 
         function generateId() {
