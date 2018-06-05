@@ -54,3 +54,9 @@ function app(state={} , action){
         goals: goals(state.goals, action)
     }
 }
+
+const store = createStore(app);
+
+store.subScribe(() => {
+    console.log("The New State is:" ,store.getState())
+})
