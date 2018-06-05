@@ -11,6 +11,7 @@ function createStore(){
     }
 
     return{
-        getState
+        getState,
+        subScribe
     }
 }
