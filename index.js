@@ -5,6 +5,9 @@ function createStore(){
     const getState = () => state;
     const subScribe = (listener) => {
         listeners.push(listener);
+        return  () => {
+            listeners = listeners.filter((l) => l !== listeners )
+        }
     }
 
     return{
