@@ -1,4 +1,4 @@
-function createStore(reducer){
+function createStore(app){
     let state;
     let listeners = [];
     
