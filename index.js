@@ -16,6 +16,15 @@ function createStore(){
 
     return{
         getState,
-        subScribe
+        subScribe,
+        dispatch
+    }
+}
+
+//App Code
+function todo(state =[], action){
+    switch(action.type){
+        case "ADD_TODO":
+        return state.filter.concat([action.todo])
     }
 }
