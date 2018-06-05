@@ -165,7 +165,7 @@
         function addTodo(){
             const input = document.getElementById('todo');
             const name = input.value;
-            input.value =" ";
+            input.value ="";
 
             store.dispatch(addTodoAction({
                 name,
@@ -177,7 +177,7 @@
         function addGoal(){
             const input = document.getElementById("goal");
             const name = input.value;
-            input.value = " ";
+            input.value = "";
 
             store.dispatch(addGoalAction({
                id: generateId(),
