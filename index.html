@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Redux Smaple</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/3.7.2/redux.min.js"></script>
     
 </head>
 <body>
@@ -23,6 +24,7 @@
     </div>
 
     <script type="text/javaScript">
+     
             function createStore(reducer){
             let state;
             let listeners = [];
@@ -224,8 +226,10 @@
             const removeBtn = createRemoveBtn(() => {
                 store.dispatch(removeGoalAction(goal.id))
             })
+            
             node.appendChild(text);
             node.appendChild(removeBtn)
+            
 
             document.getElementById('goals').appendChild(node);
         }
