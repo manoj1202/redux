@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
-    
+
     <title>Redux Smaple</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/3.7.2/redux.min.js"></script>
-    
+
 </head>
+
 <body>
 
     <div>
         <h1>TODO List</h1>
-        <input id ="todo" type="text" placeholder="Add Todo" />
+        <input id="todo" type="text" placeholder="Add Todo" />
         <button id="todobtn">Add Todo</button>
         <ul id='todos'></ul>
     </div>
@@ -109,7 +111,7 @@
             switch(action.type){
                 case ADD_GOAL:
                 return state.concat([action.goal])
-                case REMOVE_TODO:
+                case REMOVE_GOAL:
                 return state.filter((goal) => goal.id !== action.id)
                 default:
                 return state
@@ -206,7 +208,6 @@
             removeBtn.innerHTML = 'X';
             removeBtn.addEventListener('click', onClick);
             return removeBtn;
-
         }
 
         function addTodoToDom(todo){
@@ -236,9 +237,10 @@
             node.appendChild(removeBtn)
             
 
-            document.getElementById('goals').appendChild(node);
+            document.getElementById('goals').append(node);
         }
 
     </script>
 </body>
+
 </html>
