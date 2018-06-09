@@ -127,10 +127,11 @@
 
         function checkAndDispatch(store, action){
             if(action.type === "ADD_TODO" &&
-            action.todo.name.toLowerCase().includes('bitcoin') ){
+               action.todo.name.toLowerCase().includes('bitcoin') ){
                return alert("Nope, thats a bad Idea")
             }
-            if(action.type === "ADD_GOAL" && action.goal.name.toLowerCase().includes('bitcon')){
+            if(action.type === "ADD_GOAL" && 
+               action.goal.name.toLowerCase().includes('bitcoin')){
                 return alert("Nope, thats a bad Idea")
             }
 
