@@ -158,7 +158,7 @@
             const name = input.value;
             input.value ="";
 
-            store.dispatch(addTodoAction({
+            checkAndDispatch(store, addTodoAction({
                 name,
                 complete: false,
                 id : generateId()
@@ -170,7 +170,7 @@
             const name = input.value;
             input.value = "";
 
-            store.dispatch(addGoalAction({
+            checkAndDispatch(store, addGoalAction({
                id: generateId(),
                name
             }))
@@ -190,13 +190,13 @@
             const node = document.createElement('li');
             const text = document.createTextNode(todo.name)
             const removeBtn = createRemoveBtn(() => {
-                store.dispatch(removeTodoAction(todo.id))
+                checkAndDispatch(store, removeTodoAction(todo.id))
             })
             node.appendChild(text)
             node.appendChild(removeBtn)            
             node.style.textDecoration = todo.complete ? 'line-through' : 'none'
             node.addEventListener('click', () => 
-                store.dispatch(toggleTodoAction(todo.id))
+                checkAndDispatch(store, toggleTodoAction(todo.id))
             )
 
             document.getElementById('todos').appendChild(node)
@@ -206,7 +206,7 @@
             const node = document.createElement('li');
             const text = document.createTextNode(goal.name);
             const removeBtn = createRemoveBtn(() => {
-                store.dispatch(removeGoalAction(goal.id))
+                checkAndDispatch(store,removeGoalAction(goal.id))
             })
             
             node.appendChild(text);
