@@ -127,21 +127,33 @@
 
         
 
-        function checker(store){
-            return function (next){
-                return function (action){
-                    if(action.type === "ADD_TODO" &&
-               action.todo.name.toLowerCase().includes('bitcoin') ){
-               return alert("Nope, thats a bad Idea")
-            }
-            if(action.type === "ADD_GOAL" && 
-               action.goal.name.toLowerCase().includes('bitcoin')){
-                return alert("Nope, thats a bad Idea")
-            }
+        // function checker(store){
+        //     return function (next){
+        //         return function (action){
+        //             if(action.type === "ADD_TODO" &&
+        //        action.todo.name.toLowerCase().includes('bitcoin') ){
+        //        return alert("Nope, thats a bad Idea")
+        //     }
+        //     if(action.type === "ADD_GOAL" && 
+        //        action.goal.name.toLowerCase().includes('bitcoin')){
+        //         return alert("Nope, thats a bad Idea")
+        //     }
 
-            return next(action)
+        //     return next(action)
+        //         }
+        //     }
+        // }
+
+        function checker =(store) => (next) => (action) => {
+            if(action.type === "ADD_TODO" && 
+                action.todo.name.toLowerCase().include('bitcoin')){
+                    return alert("Nope, thats the bad idea!")
+                    }
+            if(action.type === "ADD_GOAL" && 
+                action.goal.name.toLowerCase().includes("bitcoin")){
+                    return alert("Nope, thats a bad idea!!")
                 }
-            }
+            return next(action)
         }
 
         const store = Redux.createStore(Redux.combineReducers({
