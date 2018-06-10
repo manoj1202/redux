@@ -128,7 +128,7 @@
 // Higher order fucntion
         const checker = (store) => (next) => (action) => {
             if(action.type === "ADD_TODO" && 
-                action.todo.name.toLowerCase().include('bitcoin')){
+                action.todo.name.toLowerCase().includes('bitcoin')){
                     return alert("Nope, thats the bad idea!")
                     }
             if(action.type === "ADD_GOAL" && 
