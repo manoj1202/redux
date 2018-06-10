@@ -126,7 +126,7 @@
         // }
 
 // Higher order fucntion
-        function checker = (store) => (next) => (action) => {
+        const checker = (store) => (next) => (action) => {
             if(action.type === "ADD_TODO" && 
                 action.todo.name.toLowerCase().include('bitcoin')){
                     return alert("Nope, thats the bad idea!")
@@ -138,7 +138,7 @@
             return next(action)
         }
 
-        function logger = (store) => (next) => (action) => {
+        const logger = (store) => (next) => (action) => {
             console.group(action.type)
             console.log("The action:", action)
             const result =  next(action)
