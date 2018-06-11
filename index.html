@@ -134,7 +134,7 @@
         const store = Redux.createStore(Redux.combineReducers({
             todos,
             goals
-        }), Redux.applyMiddleware(checker, logger));
+            }), Redux.applyMiddleware(checker, logger));
 
         store.subscribe(() => {
            const {goals,todos} = store.getState();
@@ -226,7 +226,12 @@
             render(){
                 return(
                     <div>
-                      TODO
+                      <h2>TODO List </h2>
+                      <input  type="text" 
+                             placeholder = "Add a Todo"
+                             ref = {(input) => this.input = input }                      
+                      />
+                      
                       <List />
                     </div>
                 )
@@ -248,7 +253,7 @@
             render(){
                 return(
                     <div>
-                       <h2>App</h2>
+                       
                        <Todos />
                        <Goals />
                     </div>
@@ -257,7 +262,7 @@
             }
         }
 
-        ReactDOM.render(<App />, document.getElementById('app'))
+        ReactDOM.render(<App store={store} />, document.getElementById('app'))
     
     </script>
 </body>
