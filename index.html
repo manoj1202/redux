@@ -27,7 +27,9 @@
         <button id="goalbtn">Add goal</button>
         <ul id="goals"></ul>
     </div>
+    <hr />
     <div id="app"> </div>
+
     <script type="text/javaScript">
 
         function generateId() {
@@ -101,7 +103,7 @@
         }
 
         // function app(state={} , action){
-        //     return {
+        //     return 
         //         todos:todos(state.todos, action),
         //         goals: goals(state.goals, action)
         //     }
@@ -209,19 +211,21 @@
         }
 
     </script>
+
     <script type="text/babel">
-        class App extends React.component{
+        
+        class App extends React.Component{
             render(){
                 return(
                     <div>
-                       App
+                       <h2>App</h2>
                     </div>
 
                 )
             }
         }
 
-        ReactDOM.render(<App />,document.getElementById('app'))
+        ReactDOM.render(<App />, document.getElementById('app'))
     
     </script>
 </body>
