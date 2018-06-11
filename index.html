@@ -213,6 +213,25 @@
     </script>
 
     <script type="text/babel">
+
+        function List(){
+            return(
+                <ul>
+                    <li>List</li>
+                </ul>
+            )
+        }
+        
+        class Todos extends React.omponent{
+            render(){
+                return(
+                    <div>
+                        <List />
+                    </div>
+                )
+            }
+        }
+
         
         class App extends React.Component{
             render(){
