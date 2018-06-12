@@ -214,10 +214,10 @@
 
     <script type="text/babel">
 
-        function List(){
+        function List(props){
             return(
                 <ul>
-                    {this.props.map((item) => {
+                    {props.items.map((item) => {
                         <li key={item.id}>
                           <span>
                           {item.name}
