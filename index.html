@@ -254,7 +254,7 @@
             addItem = (e) => {
                 e.preventDefault();
                 const name = this.input.value;
-                this.input = "";
+                this.input.value = "";
 
                 this.props.store.dispatch(addGoalAction({
                     id: generateId(),
@@ -283,7 +283,7 @@
                     <div>
                       
                        <Todos  store={this.props.store} />
-                       <Goals />
+                       <Goals store={this.props.store}/>
                     </div>
 
                 )
