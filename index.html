@@ -255,6 +255,11 @@
                 e.preventDefault();
                 const name = this.input.value;
                 this.input = "";
+
+                this.props.store.dispatch(addGoalAction({
+                    id: generateId(),
+                    name
+                }))
             }
             render(){
                 return(
