@@ -42,30 +42,35 @@
                 todo
             }
         }
+        
         function removeTodoAction(id) {
             return {
                 type : REMOVE_TODO,
                 id
             }
         }
+        
         function toggleTodoAction(id){
             return{
                 type: TOGGLE_TODO,
                 id
             }
         }
+        
         function addGoalAction(goal) {
             return{
                 type: ADD_GOAL,
                 goal
             }
         }
+        
         function removeGoalAction(id) {
             return {
                 type: REMOVE_GOAL,
                 id
             }
         }
+        
         function receiveDataAction(todos,goals){
             return{
                 type: RECEIVE_DATA,
@@ -73,6 +78,7 @@
                 goals
             }
         }
+
         function handleAddTodo(name,cd){
             return (dispatch) => {
                 return API.saveTodo(name)
@@ -85,6 +91,7 @@
                  })
             }
         }
+
         function handleDeleteTodo(todo){
             return (dispatch) => {
                 dispatch(removeTodoAction(todo.id))
@@ -95,6 +102,18 @@
                  })
             }
         }
+
+        function handleToggle(id){
+            return (dispatch) => {
+                dispatch(toggleTodoAction(id))
+                return API.saveTodoToggle(id)
+                .catch(() => {
+                    dispatch(toggleTodoAction(id))
+                    alert("An error occured.Try again")
+                })
+            }
+        }
+
         function handleAddGoal(name,cd){
             return (dispatch) => {
                 return API.saveGoal(name)
@@ -234,12 +253,7 @@
                 this.props.store.dispatch(handleDeleteTodo(todo))
             }
             toggleItem =(id) =>{
-                this.props.store.dispatch(toggleTodoAction(id))
-                return API.saveTodoToggle(id)
-                 .catch(() => {
-                     this.props.store.dispatch(toggleTodoAction(id))
-                     alert("An error occurred.Try again")
-                 })
+                this.props.store.dispatch(handleToggle(id))
             }
             render(){
                 return(
