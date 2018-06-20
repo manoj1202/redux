@@ -231,6 +231,7 @@
                 return API.deleteGoal(goal.id)
                  .catch(() => {
                      this.props.store.dispatch(addGoalAction(goal))
+                     alert("An Error occured. Try again")
                  })
             }
             render(){
