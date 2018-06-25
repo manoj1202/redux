@@ -285,6 +285,20 @@
                 )
             }
         }
+
+        class ConnectedTodos extends React.Component{
+            render(){
+                return(
+                    <Context.Consume>
+                        {(store) => (
+                            const {todos} = store.getState()
+                            return <Todos todos={todos}  dispatch={store.dispatch}/>
+                        )}
+                    </Context.Consume>
+                )
+            }
+        }
+
         class Goals extends React.Component{
             addItem = (e) => {
                 e.preventDefault();
