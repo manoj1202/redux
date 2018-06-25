@@ -322,7 +322,7 @@
                         {(store) => (
                             const {goals} = store.getState()
 
-                            return <Goals  />
+                            return <Goals goals={goals} dispatch={store.dispatch} />
                         )}
                     </Context.Consumer>
                 )
