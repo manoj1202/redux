@@ -314,7 +314,20 @@
                 )
             }
         }
+        
+        class ConnectedGoals extends React.Component{
+            render(){
+                return(
+                    <Context.Consumer>
+                        {(store) => (
+                            const {goals} = store.getState()
 
+                            return <Goals  />
+                        )}
+                    </Context.Consumer>
+                )
+            }
+        }
         
         class App extends React.Component{
             componentDidMount(){
