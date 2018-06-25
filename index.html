@@ -354,7 +354,7 @@
 
         const Context = React.createContext()
 
-        function connect(){
+        function connect(mapStateToProps){
             return (Component) => {
                 class Receiver extends React.Component{
                     componentDidMount(){
