@@ -289,12 +289,12 @@
         class ConnectedTodos extends React.Component{
             render(){
                 return(
-                    <Context.Consume>
+                    <Context.Consumer>
                         {(store) => (
                             const {todos} = store.getState()
                             return <Todos todos={todos}  dispatch={store.dispatch}/>
                         )}
-                    </Context.Consume>
+                    </Context.Consumer>
                 )
             }
         }
