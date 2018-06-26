@@ -12,12 +12,11 @@
     <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
     <script src="https://tylermcginnis.com/goals-todos-api/index.js"></script>
     <script src="https://unpkg.com/redux-thunk@2.2.0/dist/redux-thunk.min.js"></script>
+    <script src="https://unpkg.com/react-redux@5.0.6/dist/react-redux.min.js"></script>
 
 </head>
 
 <body>
-
-    
     <div id="app"> </div>
 
     <script type="text/javaScript">
@@ -25,8 +24,6 @@
         function generateId() {
             return Math.random().toString(36).substring(2) + (new Date()).getTime().toString(36);
         }
-     
-        
 
         //App Code
         const ADD_TODO = "ADD_TODO";
@@ -126,6 +123,7 @@
                  })
             }
         }
+
         function handleDeleteGoal(goal){
             return (dispatch) => {
                 dispatch(removeGoalAction(goal.id))
@@ -191,7 +189,7 @@
 
         
 
-// Higher order fucntion
+        // Higher order fucntion
         const checker = (store) => (next) => (action) => {
             if(action.type === "ADD_TODO" && 
                 action.todo.name.toLowerCase().includes('bitcoin')){
@@ -276,15 +274,15 @@
                       <button onClick= {this.addItem} >Add Todo</button>
                       <List 
                           toggle = {this.toggleItem}
-                         items ={this.props.todos}
-                         remove ={this.removeItem} 
+                          items ={this.props.todos}
+                          remove ={this.removeItem} 
                        />
                     </div>
                 )
             }
         }
 
-        const ConnectedTodos = connect((state) => ({
+        const ConnectedTodos = ReactRedux.connect((state) => ({
             todos : state.todos
         }))(Todos)
 
@@ -318,7 +316,7 @@
             }
         }
         
-        const ConnectedGoals = connect((state) => ({
+        const ConnectedGoals = ReactRedux.connect((state) => ({
             goals : state.goals
         }))(Goals)
         
@@ -346,61 +344,61 @@
             }
         }
 
-        const ConnectedApp = connect((state) => ({
+        const ConnectedApp = ReactRedux.connect((state) => ({
             loading : state.loading
         }))(App)
 
-        const Context = React.createContext()
+        // const Context = React.createContext()
 
-        function connect(mapStateToProps){
-            return (Component) => {
-                class Receiver extends React.Component{
-                    componentDidMount(){
-                        const {subscribe} = this.props.store
+        // function connect(mapStateToProps){
+        //     return (Component) => {
+        //         class Receiver extends React.Component{
+        //             componentDidMount(){
+        //                 const {subscribe} = this.props.store
 
-                        this.unsubscribe = subscribe(() => {
-                            this.forceUpdate()
-                        })
-                    }
-                    componentWillUnmount(){
-                        this.unsubscribe()
-                    }
-                    render(){
-                        const {dispatch, getState} = this.props.store
-                        const state = getState()
-                        const stateNeeded = mapStateToProps(state)
+        //                 this.unsubscribe = subscribe(() => {
+        //                     this.forceUpdate()
+        //                 })
+        //             }
+        //             componentWillUnmount(){
+        //                 this.unsubscribe()
+        //             }
+        //             render(){
+        //                 const {dispatch, getState} = this.props.store
+        //                 const state = getState()
+        //                 const stateNeeded = mapStateToProps(state)
 
-                        return<Component {...stateNeeded} dispatch = {dispatch}/>
-                    }
-                }
-            class ConnectedComponent extends React.Component{
-                render(){
-                    return(
-                        <Context.Consumer>
-                            {(store) => <Receiver store={store}/>}
-                        </Context.Consumer>
-                    )
-                }
-            }
+        //                 return<Component {...stateNeeded} dispatch = {dispatch}/>
+        //             }
+        //         }
+        //     class ConnectedComponent extends React.Component{
+        //         render(){
+        //             return(
+        //                 <Context.Consumer>
+        //                     {(store) => <Receiver store={store}/>}
+        //                 </Context.Consumer>
+        //             )
+        //         }
+        //     }
 
-        return ConnectedComponent
-            }
-        }
+        // return ConnectedComponent
+        //     }
+        // }
 
-        class Provider extends React.Component{
-            render(){
-                return(
-                    <Context.Provider value={this.props.store}>
-                        {this.props.children}
-                    </Context.Provider>
-                )
-            }
-        }
+        // class Provider extends React.Component{
+        //     render(){
+        //         return(
+        //             <Context.Provider value={this.props.store}>
+        //                 {this.props.children}
+        //             </Context.Provider>
+        //         )
+        //     }
+        // }
 
         ReactDOM.render(
-            <Provider store={store}>
+            <ReactRedux.Provider store={store}>
                 <ConnectedApp  />
-            </Provider>,
+            </ReactRedux.Provider>,
             document.getElementById('app')
         )
     
