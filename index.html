@@ -226,8 +226,6 @@
             loading
             }), Redux.applyMiddleware(ReduxThunk.default, checker, logger));
 
-     
-
     </script>
 
     <script type="text/babel">
@@ -403,7 +401,8 @@
             <Provider store={store}>
                 <ConnectedApp  />
             </Provider>,
-             document.getElementById('app'))
+            document.getElementById('app')
+        )
     
     </script>
 </body>
